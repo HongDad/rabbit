@@ -1,4 +1,4 @@
-package com.data.map;
+package com.data.reduce;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -7,7 +7,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 
 /**
- * Created by abc
+ * Created by wdh
  *
  * 这里是MR程序 reducer阶段处理的类
  *
