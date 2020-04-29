@@ -1,4 +1,4 @@
-package com.data.utils;
+package org.data.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

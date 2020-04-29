@@ -1,7 +1,7 @@
-package com.data.movie.topn;
+package org.data.movie.topn;
 
 
-import com.data.movie.bean.Movie;
+import org.data.movie.bean.Movie;
 import com.google.gson.Gson;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.LongWritable;

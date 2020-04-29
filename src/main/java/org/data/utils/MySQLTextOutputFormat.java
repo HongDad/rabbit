@@ -1,4 +1,4 @@
-package com.data.utils;
+package org.data.utils;
 
 import org.apache.hadoop.io.Text;
 
@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import static com.data.utils.JDBCUtil.*;
 
 /**
  * 将数据写入到mysql
@@ -89,7 +88,7 @@ public class MySQLTextOutputFormat extends OutputFormat<Text,IntWritable> {
     //@Test
     public void test(){
         MySQLRecordWriter tt = new MySQLRecordWriter();
-        Connection con = getConnection();
+        Connection con = JDBCUtil.getConnection();
         System.out.println("+++++++++++++" + con);
     }
 

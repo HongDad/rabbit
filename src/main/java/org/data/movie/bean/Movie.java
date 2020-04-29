@@ -1,4 +1,4 @@
-package com.data.movie.bean;
+package org.data.movie.bean;
 
 import org.apache.hadoop.io.Writable;
 
