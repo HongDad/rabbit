@@ -3,6 +3,10 @@ package com.data.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ *
+ * 定义一个mysql的连接配置
+ */
 public class JDBCUtil {
 
     private static final String MYSQL_DRIVER_CLASS = "com.mysql.jdbc.Driver";
