@@ -40,7 +40,7 @@ public class MySQLTextOutputFormat extends OutputFormat<Text,IntWritable> {
             PreparedStatement pstat = null;
             System.out.println("写入数据库！");
             try {
-                String insertSQL = "insert into databank_monitor_cnt(id,cnt)" +
+                String insertSQL = "insert into user_rate(name,cnt)" +
                         " values(?,?)";
                 pstat = connection.prepareStatement(insertSQL);
 
