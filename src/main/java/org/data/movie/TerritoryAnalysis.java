@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 public class TerritoryAnalysis {
 
-    static class UserRateMapper extends Mapper<LongWritable, Text, Text, MovierReviewBean> {
+    static class TerritoryMapper extends Mapper<LongWritable, Text, Text, MovierReviewBean> {
         /**
          * map方法一行数据执行一次  1000
          * 将new Gson(); 代码提到方法的外面 , 避免大量的对象的创建
@@ -44,9 +44,9 @@ public class TerritoryAnalysis {
                 v = gs.fromJson(line, MovierReviewBean.class);
                 // k  赋值
                 if (!v.getTags().split(",")[0].equals("")) {
-                    k.set(v.getTags().split(",")[0] + "");
+                    k.set(v.getTags().split(",")[0] + "-territory");
                 } else {
-                    k.set("其它");
+                    k.set("其它-territory");
                 }
                 // 写出去
                 context.write(k, v);
@@ -57,7 +57,7 @@ public class TerritoryAnalysis {
         }
     }
 
-    static class UserRateReducer extends Reducer<Text, MovierReviewBean, Text, IntWritable> {
+    static class TerritoryReducer extends Reducer<Text, MovierReviewBean, Text, IntWritable> {
         IntWritable v = new IntWritable();
 
         @Override
@@ -79,8 +79,8 @@ public class TerritoryAnalysis {
 
         Job job = Job.getInstance(conf);
 
-        job.setMapperClass(UserRateMapper.class);
-        job.setReducerClass(UserRateReducer.class);
+        job.setMapperClass(TerritoryMapper.class);
+        job.setReducerClass(TerritoryReducer.class);
 
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(MovierReviewBean.class);

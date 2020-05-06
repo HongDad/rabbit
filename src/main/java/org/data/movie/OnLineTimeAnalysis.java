@@ -43,7 +43,7 @@ public class OnLineTimeAnalysis {
                 v = gs.fromJson(line, MovierReviewBean.class);
                 // k  赋值
                 if (!v.getPlay_time().equals("")) {
-                    k.set(v.getPlay_time().split(":")[0] +":"+ v.getPlay_time().split(":")[1] + "");
+                    k.set(v.getPlay_time().split(":")[0] +":"+ v.getPlay_time().split(":")[1] + "-on_line_time");
                 }
                 // 写出去
                 context.write(k, v);

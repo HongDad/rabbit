@@ -49,12 +49,12 @@ public class FeatureAnalysis {
                     System.out.println(v.getTags());
                     String  tages[] = v.getTags().split(",");
                     if (Arrays.asList(year).contains(tages[tages.length-1])) {
-                        k.set(tages[tages.length-1] + "");
+                        k.set(tages[tages.length-1] + "-feature");
                     }else{
-                        k.set("其它");
+                        k.set("其它-feature");
                     }
                 }else{
-                    k.set("其它");
+                    k.set("其它-feature");
                 }
                 // 写出去
                 context.write(k, v);

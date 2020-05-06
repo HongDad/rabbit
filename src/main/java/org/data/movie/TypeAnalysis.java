@@ -50,7 +50,7 @@ public class TypeAnalysis {
                 String tages[] = v.getTags().split(",");
                 for (int i = 0 ;i < tages.length;i++) {
                     if (Arrays.asList(year).contains(tages[i])) {
-                        k.set(tages[i] + "");
+                        k.set(tages[i]+"-type");
                         // 写出去
                         context.write(k, v);
                     }
@@ -72,8 +72,7 @@ public class TypeAnalysis {
             for (MovierReviewBean movie : iters) {
                 count++;
             }
-            int avgRate = count;
-            v.set(avgRate);
+            v.set(count);
             context.write(uid, v);
         }
     }

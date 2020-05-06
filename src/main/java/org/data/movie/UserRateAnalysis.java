@@ -43,7 +43,7 @@ public class UserRateAnalysis {
                 //赋值
                 v = gs.fromJson(line, MovierReviewBean.class);
                 // k  赋值
-                k.set(v.getScore() + "");
+                k.set(v.getScore() + "-user_rate");
                 // 写出去
                 context.write(k, v);
             } catch (Exception e) {

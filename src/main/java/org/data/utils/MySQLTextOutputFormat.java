@@ -40,15 +40,18 @@ public class MySQLTextOutputFormat extends OutputFormat<Text,IntWritable> {
             PreparedStatement pstat = null;
             System.out.println("写入数据库！");
             try {
-                String insertSQL = "insert into user_rate(name,cnt)" +
+                String tableName = key.toString().split("-")[1];
+//                String insertSQL = "insert into "+tableName+"(name,cnt)" +
+//                        " values(?,?)";
+                String insertSQL = "insert into   databank_monitor_cnt(name,cnt)" +
                         " values(?,?)";
                 pstat = connection.prepareStatement(insertSQL);
 
                 //取得reduce方法传过来的key
-                String type = key.toString();
+                String type = key.toString().split("-")[0];
                 String count = value.toString();
 
-                pstat.setString(1,type);
+                pstat.setString(1,type.toString());
                 pstat.setInt(2,Integer.parseInt(count));
 
                 //执行向数据库插入操作

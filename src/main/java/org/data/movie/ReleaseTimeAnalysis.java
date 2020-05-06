@@ -54,12 +54,12 @@ public class ReleaseTimeAnalysis {
                 // k  赋值
                 if (v.getTags().split(",").length > 2) {
                     if (Arrays.asList(year).contains(v.getTags().split(",")[1])) {
-                        k.set(v.getTags().split(",")[1] + "");
+                        k.set(v.getTags().split(",")[1] + "-release_time");
                     }else{
-                        k.set("其它");
+                        k.set("其它-release_time");
                     }
                 }else{
-                    k.set("其它");
+                    k.set("其它-release_time");
                 }
                 // 写出去
                 context.write(k, v);
