@@ -43,8 +43,10 @@ public class ShowAnalysis {
                 //赋值
                 v = gs.fromJson(line, MovierReviewBean.class);
                 // k  赋值
-                k.set(v.getTags().split(",")[0]+"");
+                k.set(v.getTags().split(",")[0]+"-show");
+
                 // 写出去
+                System.out.println(k+"      "+v);
                 context.write(k, v);
             } catch (Exception e) {
                 // TODO Auto-generated catch block
@@ -63,16 +65,16 @@ public class ShowAnalysis {
             for (MovierReviewBean movie : iters) {
                 count++ ;
                 String  hot = movie.getHot();
+                System.out.println(hot);
                 //todo:计算逻辑有点问题
-                System.out.println(hot.substring(-2,-1));
-                if (!hot.equals("")&&hot.substring(-2,-1).equals("万")){
-                    sum += Long.parseLong(hot.substring(0,-2))*10000;
-                }else  if (!hot.equals("")&&hot.substring(-2,-1).equals("亿")){
-                    sum += Long.parseLong(hot.substring(0,-2))*100000000;
-                }else if (!hot.equals("")){
-                    sum += Long.parseLong(hot);
-                }
-            }
+//                if (!hot.equals("")&&hot.substring(-1).equals("万")){
+//                    sum += Long.parseLong(hot.substring(0,-1))*10000;
+//                }else  if (!hot.equals("")&&hot.substring(-1).equals("亿")){
+//                    sum += Long.parseLong(hot.substring(0,-1))*100000000;
+//                }else if (!hot.equals("")){
+//                    sum += Long.parseLong(hot);
+//                }
+          }
             Long avgRate = sum/count;
             v.set(avgRate);
             context.write(uid, v);

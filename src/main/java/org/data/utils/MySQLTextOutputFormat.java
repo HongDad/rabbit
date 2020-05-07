@@ -41,10 +41,10 @@ public class MySQLTextOutputFormat extends OutputFormat<Text,IntWritable> {
             System.out.println("写入数据库！");
             try {
                 String tableName = key.toString().split("-")[1];
-//                String insertSQL = "insert into "+tableName+"(name,cnt)" +
-//                        " values(?,?)";
-                String insertSQL = "insert into   databank_monitor_cnt(name,cnt)" +
+                String insertSQL = "insert into "+tableName+"(name,cnt)" +
                         " values(?,?)";
+//                String insertSQL = "insert into   databank_monitor_cnt(name,cnt)" +
+//                        " values(?,?)";
                 pstat = connection.prepareStatement(insertSQL);
 
                 //取得reduce方法传过来的key
