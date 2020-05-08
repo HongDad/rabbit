@@ -44,7 +44,7 @@ public class ActorAnalysis {
             // k  赋值
             String stars[] = v.getStars().split(",");
             for (int i = 0 ;i < stars.length;i++) {
-                k.set(stars[i] + "");
+                k.set(stars[i] + "-actor");
                 // 写出去
                 context.write(k, v);
             }
